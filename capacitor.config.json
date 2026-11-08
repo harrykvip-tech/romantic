@@ -1,0 +1,11 @@
+{
+  "appId": "com.romantic.guide",
+  "appName": "ရိုမန်တစ်",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "backgroundColor": "#eef0ff"
+  }
+}

@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Padauk';
+  src: local('Padauk'), url('../fonts/Padauk-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Padauk';
+  src: local('Padauk Bold'), url('../fonts/Padauk-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@layer base {
+  * {
+    font-family: 'Padauk', 'Noto Sans Myanmar', 'Myanmar Text', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    background-color: #eef0ff;
+    color: #14122b;
+    min-height: 100vh;
+    /* Padauk ရဲ့ ပါးလွန်းတဲ့ မျဉ်းတွေကို အနည်းငယ်ထူစေပြီး ပိုထင်ရှားစေ */
+    -webkit-text-stroke: 0.35px currentColor;
+  }
+  /* Liquid glass နောက်ခံ အရောင်အလင်းစက်များ */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(45vmax 45vmax at 8% 6%, rgba(167, 139, 250, .60), transparent 62%),
+      radial-gradient(45vmax 45vmax at 98% 22%, rgba(125, 190, 255, .60), transparent 62%),
+      radial-gradient(42vmax 42vmax at 12% 92%, rgba(255, 190, 220, .60), transparent 62%),
+      radial-gradient(38vmax 38vmax at 90% 96%, rgba(170, 240, 222, .55), transparent 62%);
+  }
+}
+
+@layer components {
+  .card-glass {
+    background: linear-gradient(135deg, rgba(255,255,255,.66), rgba(255,255,255,.30));
+    -webkit-backdrop-filter: blur(22px) saturate(180%);
+    backdrop-filter: blur(22px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, .8);
+    box-shadow:
+      0 10px 32px rgba(88, 70, 190, .16),
+      inset 0 1px 0 rgba(255, 255, 255, .95),
+      inset 0 -1px 0 rgba(255, 255, 255, .35);
+  }
+  .app-header {
+    background: linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.42));
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    backdrop-filter: blur(24px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, .85);
+    box-shadow: 0 6px 24px rgba(88, 70, 190, .12), inset 0 -1px 0 rgba(255,255,255,.4);
+    padding-top: calc(0.75rem + env(safe-area-inset-top, 0px));
+  }
+  .btn-accent {
+    background: linear-gradient(135deg, #8a7bf5 0%, #5f8cf0 100%);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, .55);
+    box-shadow:
+      0 6px 18px rgba(95, 100, 235, .38),
+      inset 0 1px 0 rgba(255, 255, 255, .55);
+  }
+  .active-main-tab {
+    background: linear-gradient(135deg, #8a7bf5 0%, #5f8cf0 100%);
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, .6) !important;
+    box-shadow:
+      0 6px 18px rgba(95, 100, 235, .38),
+      inset 0 1px 0 rgba(255, 255, 255, .55);
+  }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+/* layer အပြင်မှာထားမှ Tailwind က မဖယ်ပါ */
+[id^="mainTab_"] {
+  border: 1px solid rgba(255, 255, 255, .8);
+  box-shadow: 0 3px 10px rgba(88, 70, 190, .10), inset 0 1px 0 rgba(255, 255, 255, .8);
+}

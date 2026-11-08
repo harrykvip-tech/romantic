@@ -1,0 +1,22 @@
+{
+  "name": "romantic-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ရိုမန်တစ် - အချစ်လမ်းညွှန် App",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./www/css/tailwind.css --minify",
+    "build": "npm run build:css",
+    "android:add": "cap add android",
+    "android:assets": "capacitor-assets generate --android",
+    "android:sync": "cap sync android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/core": "^6.1.2"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^6.1.2",
+    "tailwindcss": "^3.4.14"
+  }
+}
